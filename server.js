@@ -12,8 +12,9 @@ io.on('connection', (socket) => {
     console.log('A new client has connected...')
     io.emit('new-user-connection', {boom: "Hello there!"})
 
-    socket.on('new-message', (draw) => {
-        io.emit('broadcast-message', draw)
+    socket.on('new-line', (draw) => {
+        console.log(draw)
+        io.emit('broadcast-image', draw)
     })
 })
 

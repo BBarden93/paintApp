@@ -61,14 +61,13 @@
       var onPaint = function() {
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
+          socket.emit('new-line', mouse)  
       };
-      socket.on('broadcast-message', (draw) => {
 
-      })
-
-      socket.on('new-user-connection', (data) => {
-          console.log("A new artist joined...")
-          console.log(data)
+      socket.on('broadcast-image', (draw) => {
+          ctx.lineTo(draw.x, draw.y);
+          ctx.stroke();
+          console.log(draw)
       })
     </script>
   </body>
